@@ -6,11 +6,11 @@ export function Navbar() {
   return (
     <div>
         <header class="navbars">
-            <a href='' className='menu-icon'>
-            <img src={logo} width="35px" height="35px" alt="logo" /> 
-            </a>
+            <figure className='menu-icon'>
+              <img src={logo} width="35px" height="35px" alt="logo" /> 
+            </figure>
             <a href="#" class="brand-name h6">
-                flick            
+              flick            
             </a>
             <nav>
               <button class="login-btn">
