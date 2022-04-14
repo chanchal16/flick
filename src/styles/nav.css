@@ -1,0 +1,16 @@
+.navbars{
+    background-color: transparent;
+    
+}
+.brand-name{
+    font-family: var(--brand);
+    color: var(--primary);
+}
+.login-btn{
+    background-color: var(--primary);
+    color: var(--offwhite);
+}
+.login-btn:hover{
+    background-color: var(--primary-dark);
+    color: var(--offwhite);
+}
