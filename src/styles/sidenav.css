@@ -1,0 +1,18 @@
+.sidenav{
+    background-color: transparent;
+    position:fixed;
+    width: 6rem;
+    height: 100%;
+    z-index: 2;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.nav-link{
+    color: var(--basic);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
