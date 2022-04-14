@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Portrait Photography",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Portrait photography, aims to capture the personality and mood of an individual or group. Images may be candid or posed, full body or close-ups.",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Fashion Photography",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "Fashion photography showcases and glamorizes fashion clothing, shoes, and accessories to make them more desirable to consumers.",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Architectural Photography",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "Both the interior and exterior design of buildings and structures are the subject of architectural photography.",
   },
 ];
