@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Open+Sans&display=swap');
+@import './styles/variables.css';
 .App {
   text-align: center;
+  font-family: var(--body);
 }
 
 .App-logo {
