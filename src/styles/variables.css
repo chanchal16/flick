@@ -1,0 +1,11 @@
+:root{
+    --primary:#292C6D;
+    --primary-dark:#161853;
+    --secondary:#1A1A1B;
+    --accent:#EC255A;
+    --offwhite:#FAEDF0;
+
+    /* fonts */
+    --brand:'Acme', sans-serif;
+    --body:'Open Sans', sans-serif;
+}
