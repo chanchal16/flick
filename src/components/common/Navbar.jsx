@@ -4,7 +4,6 @@ import logo from '../../assets/shiny-iris.svg'
 
 export function Navbar() {
   return (
-    <div>
         <header class="navbars">
             <figure className='menu-icon'>
               <img src={logo} width="35px" height="35px" alt="logo" /> 
@@ -18,7 +17,5 @@ export function Navbar() {
               </button>
             </nav>
         </header>
-
-    </div>
   )
 }
