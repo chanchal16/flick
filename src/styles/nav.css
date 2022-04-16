@@ -1,6 +1,5 @@
 .navbars{
-    background-color: transparent;
-    
+    background-color: var(--offwhite);   
 }
 .brand-name{
     font-family: var(--brand);
@@ -13,4 +12,11 @@
 .login-btn:hover{
     background-color: var(--primary-dark);
     color: var(--offwhite);
+}
+@media (min-width: 768px) {
+    .navbars{
+        position: fixed;
+        z-index: 3;
+        width: 100%;
+    }
 }
