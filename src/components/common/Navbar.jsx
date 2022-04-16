@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
 
@@ -12,9 +13,11 @@ export function Navbar() {
               flick            
             </a>
             <nav>
-              <button class="login-btn">
-                Login
-              </button>
+              <Link to='/login'> 
+                <button class="login-btn">
+                  Login
+                </button>
+              </Link>
             </nav>
         </header>
   )
