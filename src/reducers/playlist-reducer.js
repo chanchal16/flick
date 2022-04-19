@@ -1,4 +1,4 @@
-const watchLaterReducer = (state,{type,payload})=>{
+const playlistReducer = (state,{type,payload})=>{
     switch(type){
         case 'GET_WATCHLATER_VIDEOS':
             return {...state, watchlater:payload};
@@ -13,4 +13,4 @@ const watchLaterReducer = (state,{type,payload})=>{
             return state;
     }
 }
-export {watchLaterReducer}
+export {playlistReducer}

@@ -1,5 +1,5 @@
 import React,{createContext,useContext,useReducer,useEffect}from 'react'
-import { watchLaterReducer } from '../reducers/watch-later'
+import { playlistReducer } from '../reducers/playlist-reducer'
 import { getVideosFromWatchLater } from '../services/watchLater-services'
 import { useAuth } from './AuthContext'
 
@@ -9,7 +9,7 @@ const initialState = {
 }
  function PlaylistContextProvider({children}) {
     const {token} = useAuth()
-    const [playListState,playListDispatch] = useReducer(watchLaterReducer,initialState)
+    const [playListState,playListDispatch] = useReducer(playlistReducer,initialState)
 
     useEffect(() => {
       getVideosFromWatchLater(token,playListDispatch)      
