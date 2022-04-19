@@ -1,7 +1,21 @@
 import React from 'react';
 import {MdPlaylistAdd,MdOutlineWatchLater} from 'react-icons/md'
+import { usePlaylist,useAuth } from '../contexts/MainProvider';
+import { addToWatchLater, removeFromWatchLater } from '../services/watchLater-services';
+import { VideoExists } from '../Utils/video-exists';
 
 export function VideoCard({video}) {
+    const {token} = useAuth();
+    const {playListState,playListDispatch} = usePlaylist();   
+    
+    const addwatchLaterHandler = async()=>{
+        if(VideoExists(playListState.watchlater,video._id)){
+            await removeFromWatchLater(token,playListDispatch,video._id)     
+        }else{
+            await addToWatchLater(token,playListDispatch,video)
+        }
+    }
+    
   return (
     <div>
         <div class="card">
@@ -20,8 +34,12 @@ export function VideoCard({video}) {
                     <span class=" gray text-xs">{video.views}views</span>                                         
                 </div>
                 <div className='action-btn'>
-                    <span className='gray'><MdPlaylistAdd size='1.3rem'/></span>
-                    <span className='gray'><MdOutlineWatchLater size='1.2rem'/></span>
+                    <span className='gray'><MdPlaylistAdd size='1.3rem'/></span>                 
+                    <span className='gray' onClick={addwatchLaterHandler}>
+                      {!VideoExists(playListState.watchlater,video._id)?
+                       <MdOutlineWatchLater size='1.2rem'/>
+                       : <MdOutlineWatchLater size='1.2rem' color='#EC255A'/>}
+                    </span>                   
                 </div>
             </div>
         </div>
