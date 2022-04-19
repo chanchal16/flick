@@ -13,8 +13,13 @@ function WatchLater() {
             <h6 className='h6 gray2-text'>Watch Later</h6>
             <span className='gray2-text'>{watchlater.length} videos</span>
         </div>
+        <div className='subhead-div'>
+            <button className='button primary-btn' onClick={()=>playListDispatch({type:'CLEAR_WATCHLATER'})}>
+                Delete all
+            </button>
+        </div>
         {/* video card */}
-        <div className='list-container'>
+        <div className='list-container'>           
             {
                 watchlater.map(video=>(
                     <div class="horizontal-card">
@@ -35,13 +40,11 @@ function WatchLater() {
                                     <MdDelete size='1.5em'/>
                                 </span>
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
                 ))
             }
         </div>
-
     </div>
   )
 }
