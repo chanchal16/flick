@@ -25,8 +25,13 @@ code {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--basic);
-  margin: 0 3rem ;
-  
+  margin: 0 3rem ;  
+}
+.subhead-div{
+  margin: 1rem 2rem;
+}
+.subhead-div button{
+  float: right;
 }
 /* list container */
 .list-container{
