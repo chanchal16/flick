@@ -1,7 +1,8 @@
 import "./App.css";
 import { Navbar,SideNav } from "./components/common";
 import { Routes, Route } from "react-router-dom";
-import {Login,Signup,VideoListing, WatchLater } from "./pages";
+import {Login,Playlists,Signup,SinglePlaylist,VideoListing, WatchLater } from "./pages";
+import {PlaylistModal} from "./components";
 
 function App() {
   return (
@@ -14,8 +15,11 @@ function App() {
             <Route path="/" element={<VideoListing/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="signup" element={<Signup/> } />
-            <Route path="/watchlater" element={<WatchLater/>}/>
-          </Routes>        
+            <Route path="watchlater" element={<WatchLater/>}/>
+            <Route path="playlists" element={<Playlists/>}/>
+            <Route path="playlists/:playlistId" element={<SinglePlaylist/>}/>
+          </Routes> 
+          <PlaylistModal/>       
         </div>       
       </main>     
     </div>

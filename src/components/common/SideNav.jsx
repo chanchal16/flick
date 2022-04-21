@@ -22,7 +22,7 @@ export function SideNav() {
             <MdOutlineThumbUp size='1.5em'/>
             <span className='text-xs'>Liked</span>
         </NavLink>
-        <NavLink to={'/playlist'} className={getClassName}>
+        <NavLink to={'/playlists'} className={getClassName}>
             <MdPlaylistAdd size='1.5em'/>
             <span className='text-xs'>Playlist</span>
         </NavLink>
