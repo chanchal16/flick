@@ -1,3 +1,3 @@
-export const VideoExists = (array, id) => {
+export const checkIfExists = (array, id) => {
     return array.find((item) => item._id === id);
 };
