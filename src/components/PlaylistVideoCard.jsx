@@ -2,12 +2,11 @@ import React from 'react';
 import {MdDelete} from 'react-icons/md';
 import { useAuth,usePlaylist } from '../contexts/MainProvider';
 
-
-export function PlaylistVideoCard({video,deleteVideo}) {
+export function PlaylistVideoCard({video,deleteVideo,playlistId}) {
     const{token} = useAuth();
     const{playListDispatch} = usePlaylist();
     const deleteVideoHandler=(videoId)=>{
-        deleteVideo(token,playListDispatch,videoId)
+        deleteVideo(token,playListDispatch,videoId,playlistId)
     }
   return (
     <div class="horizontal-card">

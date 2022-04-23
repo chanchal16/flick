@@ -6,7 +6,7 @@ import { checkIfExists } from '../Utils/check-if-exists';
 
 export function VideoCard({video}) {
     const {token} = useAuth();
-    const {playListState,playListDispatch} = usePlaylist();   
+    const {playListState,playListDispatch,setIsModalOpen,setSelectedVideo} = usePlaylist();   
     
     const addwatchLaterHandler = async()=>{
         if(checkIfExists(playListState.watchlater,video._id)){
@@ -14,6 +14,11 @@ export function VideoCard({video}) {
         }else{
             await addToWatchLater(token,playListDispatch,video)
         }
+    }
+
+    const openModal = ()=>{
+        setIsModalOpen(true);
+        setSelectedVideo(video)
     }
     
   return (
@@ -33,8 +38,10 @@ export function VideoCard({video}) {
                     <span class="gray text-xs"><strong> {video.creator}</strong></span> 
                     <span class=" gray text-xs">{video.views}views</span>                                         
                 </div>
-                <div className='action-btn'>
-                    <span className='gray'><MdPlaylistAdd size='1.3rem'/></span>                 
+                <div className='action-btn'>                  
+                    <span className='gray' onClick={openModal}>
+                        <MdPlaylistAdd size='1.3rem'/>
+                    </span>                 
                     <span className='gray' onClick={addwatchLaterHandler}>
                       {!checkIfExists(playListState.watchlater,video._id)?
                        <MdOutlineWatchLater size='1.2rem'/>
