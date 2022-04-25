@@ -12,11 +12,11 @@ export function SimilarVideoCard({video}) {
         </div>
         <div class="hc-content">
             <Link to={`/${video._id}`} className='link-to hover'>
-                <h3 class="card-title">{video.title.substring(0,40)}...</h3>
+                <h3 class="hc-title">{video.title.substring(0,40)}...</h3>
             </Link>
-            <p class="gray card-sub-title ">{video.creator}</p>
+            <p class="gray hc-sub-title ">{video.creator}</p>
             <div >
-            <span className='gray card-sub-title'>{video.views} <MdRemoveRedEye/>
+            <span className='gray hc-sub-title'>{video.views} <MdRemoveRedEye/>
                 <span className="dot">&bull;</span>
             {video.published} ago</span>                  
             </div>
