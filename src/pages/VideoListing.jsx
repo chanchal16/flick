@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../styles/videos.css';
 import { useVideo } from '../contexts/VideoContext';
 import { VideoCard } from '../components';
+import { Link } from 'react-router-dom';
 
 export function VideoListing() {
     const{videos,setVideos} = useVideo();
@@ -22,7 +23,9 @@ export function VideoListing() {
     <div className='videos-container'>
         {
             videos?.map(video=>(
+              <Link to={`/${video._id}`} key={video._id} className='link-to' >
                 <VideoCard video={video} key={video._id} />
+              </Link>
             ))
         }
     </div>
