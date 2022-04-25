@@ -13,7 +13,7 @@ export const videos = [
     views:'579K',
     duration:'10:01',
     categoryName:'Portrait Photography',
-    published:'1'
+    published:'1 year'
   },
   {
     _id: "kCu_JaxaxX0",
@@ -34,7 +34,7 @@ export const videos = [
     views:'100K',
     duration:'5:52',
     categoryName:'Fashion Photography',
-    published:'1'
+    published:'1 year'
   },
   {
     _id: "V7z7BAZdt2M",
@@ -44,7 +44,7 @@ export const videos = [
     views:'4.5M',
     duration:'11:09',
     categoryName:'Portrait Photography',
-    published:'3'
+    published:'3 years'
   },
   {
     _id: "YDL-sNZk84c",
@@ -64,7 +64,7 @@ export const videos = [
     views:'601K',
     duration:'25:59',
     categoryName:'Portrait Photography',
-    published:'5'
+    published:'5 years'
   },
   {
     _id: "LUpgF2G32Qs",
@@ -74,7 +74,7 @@ export const videos = [
     views:'86K',
     duration:'16:33',
     categoryName:'Fashion Photography',
-    published:'1'
+    published:'1 year'
   },
   {
     _id: "yiblDn4JGfQ",
@@ -84,7 +84,7 @@ export const videos = [
     views:'666K',
     duration:'4:11',
     categoryName:'Architectural Photography',
-    published:'4'
+    published:'4 years'
   },
   {
     _id: "4FE_AUhtRb8",
@@ -94,7 +94,7 @@ export const videos = [
     views:'274K',
     duration:'8:19',
     categoryName:'Fashion Photography',
-    published:'2'
+    published:'2 years'
   },
   {
     _id: "V9w5E9I5bW4",
@@ -104,7 +104,7 @@ export const videos = [
     views:'1.3M',
     duration:'6:53',
     categoryName:'Portrait Photography',
-    published:'6'
+    published:'6 years'
   },
   {
     _id: "BAiN4Wyf_KY",
@@ -114,7 +114,7 @@ export const videos = [
     views:'338K',
     duration:'14:41',
     categoryName:'Portrait Photography',
-    published:'2'
+    published:'2 years'
   },
   {
     _id: "lCN2aU3cuwc",
@@ -124,7 +124,7 @@ export const videos = [
     views:'31K',
     duration:'6:10',
     categoryName:'Fashion Photography',
-    published:'1'
+    published:'1 year'
   },
   {
     _id: "OtZAku_co3w",
@@ -134,7 +134,7 @@ export const videos = [
     views:'253K',
     duration:'11:22',
     categoryName:'Architectural Photography',
-    published:'4'
+    published:'4 years'
   },
   {
     _id: "i1MdxIFaxbc",
@@ -144,6 +144,6 @@ export const videos = [
     views:'16K',
     duration:'34:46',
     categoryName:'Architectural Photography',
-    published:'1'
+    published:'1 year'
   },
 ];
