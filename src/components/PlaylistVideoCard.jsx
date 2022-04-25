@@ -21,7 +21,7 @@ export function PlaylistVideoCard({video,deleteVideo,playlistId}) {
             <div className='content-footer'>
                 <div className='info'>
                 <span className='gray'>{video.views} views</span>
-                <span className='gray'>{video.published} years ago</span>
+                <span className='gray'>{video.published} ago</span>
                 </div>
                 <span className='delete' onClick={()=>deleteVideoHandler(video._id)}>
                     <MdDelete size='1.5em'/>
