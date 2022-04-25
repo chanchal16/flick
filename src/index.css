@@ -17,7 +17,9 @@ code {
   flex-direction: column;
   
 }
-
+.link-to{
+  color: var(--secondary);
+}
 /* watchlist header */
 .watchlist-header{
   padding: 1rem ;
