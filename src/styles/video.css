@@ -50,10 +50,11 @@
     width: 9rem;
     height: 6rem;
 }
-.card-title{
+.hc-title{
     font-size: 0.9rem;
+    margin: 0 1rem ;
 }
-.card-sub-title{
+.hc-sub-title{
     font-size: 0.8rem;
     margin: 0 1rem ;
 }
