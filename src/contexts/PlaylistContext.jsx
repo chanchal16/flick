@@ -1,13 +1,15 @@
 import React,{createContext,useContext,useReducer,useEffect,useState}from 'react'
 import { playlistReducer } from '../reducers/playlist-reducer'
-import { getAllPlaylists, getPlaylist } from '../services/playlist-services'
+import { getLikedVideos } from '../services/likes-services'
+import { getAllPlaylists } from '../services/playlist-services'
 import { getVideosFromWatchLater } from '../services/watchLater-services'
 import { useAuth } from './AuthContext'
 
 const playlistContext = createContext()
 const initialState = {
     watchlater:[],
-    playlists:[]
+    playlists:[],
+    likes:[]
 }
  function PlaylistContextProvider({children}) {
    const [isModalOpen,setIsModalOpen] = useState(false)
@@ -17,7 +19,8 @@ const initialState = {
 
     useEffect(() => {
       getAllPlaylists(token,playListDispatch)
-      getVideosFromWatchLater(token,playListDispatch)      
+      getVideosFromWatchLater(token,playListDispatch) 
+      getLikedVideos(token,playListDispatch)     
     }, [])
 
     const providerObj = {playListState,playListDispatch,isModalOpen,setIsModalOpen,selectedVideo,setSelectedVideo}
