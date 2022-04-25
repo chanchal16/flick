@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {MdPlaylistAdd,MdOutlineWatchLater} from 'react-icons/md'
 import { usePlaylist,useAuth } from '../contexts/MainProvider';
 import { addToWatchLater, removeFromWatchLater } from '../services/watchLater-services';
@@ -8,7 +9,7 @@ export function VideoCard({video}) {
     const {token} = useAuth();
     const {playListState,playListDispatch,setIsModalOpen,setSelectedVideo} = usePlaylist();   
     
-    const addwatchLaterHandler = async()=>{
+    const watchLaterHandler = async()=>{
         if(checkIfExists(playListState.watchlater,video._id)){
             await removeFromWatchLater(token,playListDispatch,video._id)     
         }else{
@@ -24,16 +25,20 @@ export function VideoCard({video}) {
   return (
     <div>
         <div class="card">
-            <div class="card-media">
-                <img class="vc-image" 
-                src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`}
-                alt="specs" loading="lazy" />  
-                <span class="time text-xs">{video.duration}</span>               
-            </div>
-            <div class="card-content">
-                <div class="content-title">
-                    <p className='text-sm'>{video.title}</p>      
+            <Link to={`/${video._id}`} className='link-to' >
+                <div class="card-media">
+                    <img class="vc-image" 
+                    src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`}
+                    alt="specs" loading="lazy" />  
+                    <span class="time text-xs">{video.duration}</span>               
                 </div>
+            </Link>
+            <div class="card-content">
+                <Link to={`/${video._id}`} className='link-to' >
+                    <div class="content-title">
+                        <p className='text-sm'>{video.title}</p>      
+                    </div>
+                </Link>
                 <div class="desc details"> 
                     <span class="gray text-xs"><strong> {video.creator}</strong></span> 
                     <span class=" gray text-xs">{video.views}views</span>                                         
@@ -42,7 +47,7 @@ export function VideoCard({video}) {
                     <span className='gray' onClick={openModal}>
                         <MdPlaylistAdd size='1.3rem'/>
                     </span>                 
-                    <span className='gray' onClick={addwatchLaterHandler}>
+                    <span className='gray' onClick={watchLaterHandler}>
                       {!checkIfExists(playListState.watchlater,video._id)?
                        <MdOutlineWatchLater size='1.2rem'/>
                        : <MdOutlineWatchLater size='1.2rem' color='#EC255A'/>}
