@@ -1,7 +1,7 @@
 const playlistReducer = (state,{type,payload})=>{
     switch(type){
         case 'INIT':
-            return {...state,playlists:payload}
+            return {...state,playlists:payload,likes:payload}
         case 'CREATE_PLAYLIST':
             return {...state,playlists:payload}
         case 'UPDATE_PLAYLIST':
@@ -14,6 +14,8 @@ const playlistReducer = (state,{type,payload})=>{
                 ...state,
                 playlists:state.playlists.filter(playlist=>playlist._id !== payload)
             }
+        case 'UPDATE_LIKES':
+            return {...state,likes:payload}
         case 'GET_WATCHLATER_VIDEOS':
             return {...state, watchlater:payload};
         case 'UPDATE_WATCHLATER':
