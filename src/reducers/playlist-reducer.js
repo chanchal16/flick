@@ -1,7 +1,7 @@
 const playlistReducer = (state,{type,payload})=>{
     switch(type){
         case 'INIT':
-            return {...state,playlists:payload}
+            return {...state,playlists:payload,history:payload}
         case 'CREATE_PLAYLIST':
             return {...state,playlists:payload}
         case 'UPDATE_PLAYLIST':
@@ -18,10 +18,12 @@ const playlistReducer = (state,{type,payload})=>{
             return {...state, watchlater:payload};
         case 'UPDATE_WATCHLATER':
             return {...state,watchlater:payload}
-        case 'CLEAR_WATCHLATER':
+        case 'UPDATE_HISTORY':
+            return {...state,history:payload}
+        case 'CLEAR':
             return {
                 ...state,
-                watchlater:[]
+                history:[]
             }
         default:
             return state;
