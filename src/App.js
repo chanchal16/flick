@@ -1,7 +1,7 @@
 import "./App.css";
 import { Navbar,SideNav } from "./components/common";
 import { Routes, Route } from "react-router-dom";
-import {Login,Playlists,Signup,SinglePlaylist,Video,VideoListing, WatchLater } from "./pages";
+import {History, Login,Playlists,Signup,SinglePlaylist,Video,VideoListing, WatchLater } from "./pages";
 import {PlaylistModal} from "./components";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
             <Route path="playlists" element={<Playlists/>}/>
             <Route path="playlists/:playlistId" element={<SinglePlaylist/>}/>
             <Route path="/:videoId" element={<Video/>}/>
+            <Route path="history" element={<History/>}/>
           </Routes> 
           <PlaylistModal/> 
                 
