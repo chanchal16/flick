@@ -4,6 +4,7 @@ import {MdPlaylistAdd,MdOutlineWatchLater} from 'react-icons/md'
 import { usePlaylist,useAuth } from '../contexts/MainProvider';
 import { addToWatchLater, removeFromWatchLater } from '../services/watchLater-services';
 import { checkIfExists } from '../Utils/check-if-exists';
+import { addToHistory } from '../services/history-services';
 
 export function VideoCard({video}) {
     const {token} = useAuth();
@@ -25,7 +26,7 @@ export function VideoCard({video}) {
   return (
     <div>
         <div class="card">
-            <Link to={`/${video._id}`} className='link-to' >
+            <Link to={`/${video._id}`} className='link-to' onClick={()=>addToHistory(token,playListDispatch,video)}>
                 <div class="card-media">
                     <img class="vc-image" 
                     src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`}
