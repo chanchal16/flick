@@ -14,7 +14,7 @@ export function SideNav() {
             <MdOutlineHome size='1.5em'/>
             <span className='text-xs'>Home</span>
         </NavLink>
-        <NavLink to={'/explore'} className={getClassName}>
+        <NavLink to={'/videos'} className={getClassName}>
             <MdOutlineExplore size='1.5em'/>
             <span className='text-xs'>explore</span>
         </NavLink>
