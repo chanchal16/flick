@@ -3,17 +3,20 @@ import { SimilarVideoCard, VideoPlayer } from '../components'
 import '../styles/video.css';
 import {MdPlaylistAdd,MdOutlineWatchLater,MdThumbUpOffAlt,MdThumbUpAlt} from 'react-icons/md'
 import {  useParams } from 'react-router-dom';
-import { useVideo } from '../contexts/VideoContext';
+import { useVideo,useAuth,usePlaylist } from '../contexts/MainProvider';
 import { checkIfExists } from '../Utils/check-if-exists';
+import { addToLikes, removeFromLikes } from '../services/likes-services';
 
 export function Video() {
   const{videoId} = useParams();
   const {videos} = useVideo();
+  const {token} = useAuth()
   const[similarVideos,setSimilarVideos] = useState([])
+  const {playListState,playListDispatch} = usePlaylist()
 
   // check the id of the video
   const video = checkIfExists(videos,videoId)
-
+console.log('video',video)
   // filter out similar videos
   const getSimilarVideos = ()=>{
     let videoList = videos.filter(vid=>vid.categoryName === video.categoryName)
@@ -24,6 +27,15 @@ export function Video() {
   useEffect(() => {
     getSimilarVideos()
   }, [video])
+
+  // handle like video
+  const LikesHandler = async()=>{
+    if(checkIfExists(playListState.likes,video._id)){
+      await removeFromLikes(token,playListDispatch,video._id)    
+    }else{
+      await addToLikes(token,playListDispatch,video)
+    }
+  }
   
   return (
     <div className='container'>
@@ -38,7 +50,12 @@ export function Video() {
                   <span className='text-sm'>{video.published} ago</span>
                 </div>
                 <div className='sub-info'>
-                  <MdThumbUpOffAlt size='1.5rem'/>
+                  <span onClick={LikesHandler}>
+                  {!checkIfExists(playListState.likes,video._id)?
+                    <MdThumbUpOffAlt size='1.5rem'/>
+                    : <MdThumbUpAlt size='1.5rem' color='#292C6D'/>
+                  }
+                  </span>
                   <MdPlaylistAdd size='1.6rem'/>
                   <MdOutlineWatchLater size='1.5rem'/>
                 </div>

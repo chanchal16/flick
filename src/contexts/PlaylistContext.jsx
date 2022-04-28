@@ -1,5 +1,6 @@
 import React,{createContext,useContext,useReducer,useEffect,useState}from 'react'
 import { playlistReducer } from '../reducers/playlist-reducer'
+import { getLikedVideos } from '../services/likes-services'
 import { getHistory } from '../services/history-services'
 import { getAllPlaylists } from '../services/playlist-services'
 import { getVideosFromWatchLater } from '../services/watchLater-services'
@@ -9,6 +10,7 @@ const playlistContext = createContext()
 const initialState = {
     watchlater:[],
     playlists:[],
+    likes:[]
     history:[]
 }
  function PlaylistContextProvider({children}) {
@@ -20,6 +22,7 @@ const initialState = {
     useEffect(() => {
       getAllPlaylists(token,playListDispatch)
       getVideosFromWatchLater(token,playListDispatch) 
+      getLikedVideos(token,playListDispatch)     
       getHistory(token,playListDispatch)     
     }, [])
 
