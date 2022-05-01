@@ -9,14 +9,15 @@ import { addToLikes, removeFromLikes } from '../services/likes-services';
 
 export function Video() {
   const{videoId} = useParams();
-  const {videos} = useVideo();
+  const {videoState} = useVideo();
+  const{videos} = videoState
   const {token} = useAuth()
   const[similarVideos,setSimilarVideos] = useState([])
   const {playListState,playListDispatch} = usePlaylist()
 
   // check the id of the video
   const video = checkIfExists(videos,videoId)
-console.log('video',video)
+
   // filter out similar videos
   const getSimilarVideos = ()=>{
     let videoList = videos.filter(vid=>vid.categoryName === video.categoryName)
