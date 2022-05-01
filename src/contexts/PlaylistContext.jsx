@@ -10,7 +10,7 @@ const playlistContext = createContext()
 const initialState = {
     watchlater:[],
     playlists:[],
-    likes:[]
+    likes:[],
     history:[]
 }
  function PlaylistContextProvider({children}) {
