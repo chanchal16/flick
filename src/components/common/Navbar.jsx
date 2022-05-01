@@ -5,16 +5,16 @@ import logo from '../../assets/shiny-iris.svg'
 
 export function Navbar() {
   return (
-        <header class="navbars">
+        <header className="navbars">
             <figure className='menu-icon'>
               <img src={logo} width="35px" height="35px" alt="logo" /> 
             </figure>
-            <a href="#" class="brand-name h6">
+            <a href="#" className="brand-name h6">
               flick            
             </a>
             <nav>
               <Link to='/login'> 
-                <button class="login-btn">
+                <button className="login-btn">
                   Login
                 </button>
               </Link>
