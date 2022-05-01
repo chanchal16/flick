@@ -5,14 +5,14 @@ import { useVideo } from '../contexts/VideoContext';
 import { VideoCard } from '../components';
 
 export function VideoListing() {
-    const{videos,setVideos} = useVideo();
+    const{videoState,videoDispatch} = useVideo();
 
     useEffect(() => {      
       (async () => {
         try {
            await axios.get("/api/videos")
            .then((res) => {
-                setVideos(res.data.videos);
+                videoDispatch({type:'LOAD_VIDEOS',payload:res.data.videos});
             })
         }catch(err) { console.log(err)};       
       })();      
@@ -21,7 +21,7 @@ export function VideoListing() {
   return (
     <div className='videos-container'>
         {
-          videos?.map(video=>(            
+          videoState.videos?.map(video=>(            
               <VideoCard video={video} key={video._id} />
           ))
         }
