@@ -1,7 +1,7 @@
 import "./App.css";
 import { Navbar,SideNav } from "./components/common";
 import { Routes, Route } from "react-router-dom";
-import {Liked, History,Login,Playlists,Signup,SinglePlaylist,Video,VideoListing, WatchLater } from "./pages";
+import {Liked,Home,History,Login,Playlists,Signup,SinglePlaylist,Video,VideoListing, WatchLater } from "./pages";
 import {PlaylistModal} from "./components";
 
 function App() {
@@ -12,7 +12,8 @@ function App() {
         <SideNav/>
         <div className="app-content">
           <Routes>
-            <Route path="/" element={<VideoListing/>}/> 
+            <Route path="/" element={<Home/>}/>
+            <Route path="videos" element={<VideoListing/>}/> 
             <Route path="/login" element={<Login />} />
             <Route path="signup" element={<Signup/> } />
             <Route path="watchlater" element={<WatchLater/>}/>
