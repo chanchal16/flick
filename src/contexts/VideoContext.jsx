@@ -1,10 +1,14 @@
-import React,{createContext,useReducer,useContext,useState} from 'react'
-import { videoReducer } from '../reducers/video.reducer';
+import React,{createContext,useReducer,useContext} from 'react'
+import { videoReducer } from '../reducers/video-reducer';
 
 const videoContext = createContext()
+const initialState = {
+  videos:[],
+  category:'ALL'
+}
 
 function VideoContextProvider({children}) {
-    const[videoState,videoDispatch] = useReducer(videoReducer,{videos:[],category:[]});
+    const[videoState,videoDispatch] = useReducer(videoReducer,initialState);
   return (
     <div>
         <videoContext.Provider value={{videoState,videoDispatch}}>

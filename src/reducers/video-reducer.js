@@ -3,7 +3,12 @@ const videoReducer = (state,{type,payload})=>{
         case 'LOAD_VIDEOS':
             return {...state,videos:payload}
         case 'FILTER_BY_CATEGORY':
-            return {...state,category:payload}
+            return {
+                ...state,
+                category:payload
+            }
+        default:
+            return state;
     }
 }
 export {videoReducer}

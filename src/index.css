@@ -12,6 +12,55 @@ code {
     monospace;
 }
 
+/* hero section */
+.hero-section{
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(6,minmax(0,1fr));
+}
+.hero-content{
+  grid-column-start: span 3;
+  margin: auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+.media{
+  grid-column-start: span 3;
+  padding: 1rem;
+  position: relative;
+  background-color: var(--offwhite); 
+  border-radius: 50%;
+}
+.hero-img{
+  width: 20rem;
+}
+.explore{
+  background-color: var(--light);
+  margin: 0.5rem 0;
+}
+.explore:hover{
+  background-color: var(--accent);
+}
+.arrow{
+  vertical-align: middle;
+}
+/* categories */
+/* .categories{
+  padding: 1rem;
+} */
+.categories-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1rem;
+  padding: 2rem;
+}
+.category-card:hover{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding-bottom: 1rem;
+}
+
+/* playlists */
 .outer-container{
   display: flex;
   flex-direction: column;
