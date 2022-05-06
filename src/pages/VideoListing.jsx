@@ -3,11 +3,11 @@ import axios from 'axios';
 import '../styles/videos.css';
 import { useVideo } from '../contexts/VideoContext';
 import { VideoCard } from '../components';
-import { filterByCategory } from '../Utils/filter-by-category';
+import { filterByCategory,searchVideos } from '../Utils';
 
 export function VideoListing() {
     const{videoState,videoDispatch} = useVideo();
-    const {videos,category} = videoState
+    const {videos,category,searchQuery} = videoState
 
     useEffect(() => {      
       (async () => {
@@ -21,7 +21,8 @@ export function VideoListing() {
     }, [])
 
     // get filtered videos
-    const filteredVids = filterByCategory(videos,category)   
+    const searchedVideos = searchVideos(videos,searchQuery)
+    const filteredVids = filterByCategory(searchedVideos,category)   
   return (
     <div>
       {/* filters */}
