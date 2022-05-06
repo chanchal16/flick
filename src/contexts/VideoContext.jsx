@@ -4,7 +4,8 @@ import { videoReducer } from '../reducers/video-reducer';
 const videoContext = createContext()
 const initialState = {
   videos:[],
-  category:'ALL'
+  category:'ALL',
+  searchQuery:''
 }
 
 function VideoContextProvider({children}) {
