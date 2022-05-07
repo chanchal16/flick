@@ -32,7 +32,7 @@ export function Home() {
           <div className='categories-container'>
             {
               categories.map(category=>(
-                <Link to='videos' className='link-to'>
+                <Link to='videos' className='link-to' key={category._id}>
                   <CategoryCard category={category} key={category._id}/>
                 </Link>
               ))
