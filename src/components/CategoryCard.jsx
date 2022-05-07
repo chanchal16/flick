@@ -5,10 +5,10 @@ export function CategoryCard({category}) {
   const {videoDispatch} = useVideo()
    
   return (
-    <div class="card category-card" key={category._id} value={category.categoryName}
+    <div className="card category-card" key={category._id} value={category.categoryName}
     onClick = {(e)=>videoDispatch({type:'FILTER_BY_CATEGORY',payload:category.categoryName})}>
-        <div class="card-media">
-            <img class="vc-image"
+        <div className="card-media">
+            <img className="vc-image"
             src={category.img}
             alt="cover" />
         </div>
