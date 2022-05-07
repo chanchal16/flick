@@ -1,20 +1,21 @@
 import React,{useState} from 'react'
-import {Link,useNavigate} from 'react-router-dom'
+import {Link,useNavigate,useLocation,Navigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/auth.css'
 
 export function Login() {
   const navigate = useNavigate()
+  let location = useLocation();
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
   });
-  const {LoginHandler} = useAuth();
+  const {LoginHandler,token,user} = useAuth();
+  let from = location.state?.from?.pathname || "/";
  
   const handleSubmit = async(e)=>{
     e.preventDefault()
     await LoginHandler(loginForm.email, loginForm.password); 
-    navigate('/')  
   }
 
   const HandleLogin=() =>{
@@ -24,6 +25,10 @@ export function Login() {
       password: "test123",
     }));
   }
+  if (user) {
+    return <Navigate to={from || "/"} replace />;
+  }
+  
   return (
     <div>
         <div className="form-container">
@@ -44,7 +49,10 @@ export function Login() {
                 <div>
                     <input type="checkbox" /> <label> Remember me</label> 
                 </div>
-                <p>Don't have an account ?<Link to='/signup' className="primary-text"> SignUp</Link></p>
+                <p>Don't have an account ?
+                  <span className="primary-text" onClick={() => navigate("/signup", { state: { from } })}>
+                     SignUp</span>
+                </p>
             </form>
         </div>
     </div>
