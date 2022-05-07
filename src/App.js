@@ -1,28 +1,18 @@
 import "./App.css";
-import { Navbar,SideNav } from "./components/common";
-import { Routes, Route } from "react-router-dom";
-import {Liked,Home,History,Login,Playlists,Signup,SinglePlaylist,Video,VideoListing, WatchLater } from "./pages";
+import { Navbar,RequireAuth,SideNav } from "./components/common";
+import { Routes, Route,useRoutes } from "react-router-dom";
 import {PlaylistModal} from "./components";
+import { ROUTES } from "./routes";
 
 function App() {
+  const routeElement = useRoutes(ROUTES)
   return (
     <div className="App">
       <Navbar/>
       <main className="app-main">
         <SideNav/>
         <div className="app-content">
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="videos" element={<VideoListing/>}/> 
-            <Route path="/login" element={<Login />} />
-            <Route path="signup" element={<Signup/> } />
-            <Route path="watchlater" element={<WatchLater/>}/>
-            <Route path="playlists" element={<Playlists/>}/>
-            <Route path="playlists/:playlistId" element={<SinglePlaylist/>}/>
-            <Route path="/:videoId" element={<Video/>}/>
-            <Route path="liked" element={<Liked/>}/>
-            <Route path="history" element={<History/>}/>
-          </Routes> 
+          {routeElement}
           <PlaylistModal/> 
                 
         </div>       
