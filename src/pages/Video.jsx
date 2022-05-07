@@ -6,6 +6,7 @@ import {  useParams } from 'react-router-dom';
 import { useVideo,useAuth,usePlaylist } from '../contexts/MainProvider';
 import { checkIfExists } from '../Utils/check-if-exists';
 import { addToLikes, removeFromLikes } from '../services/likes-services';
+import{addToWatchLater,removeFromWatchLater} from '../services/watchLater-services'
 
 export function Video() {
   const{videoId} = useParams();
@@ -13,7 +14,7 @@ export function Video() {
   const{videos} = videoState
   const {token} = useAuth()
   const[similarVideos,setSimilarVideos] = useState([])
-  const {playListState,playListDispatch} = usePlaylist()
+  const {playListState,playListDispatch,setIsModalOpen,setSelectedVideo} = usePlaylist()
 
   // check the id of the video
   const video = checkIfExists(videos,videoId)
@@ -37,6 +38,19 @@ export function Video() {
       await addToLikes(token,playListDispatch,video)
     }
   }
+  // handle watchlater
+  const watchLaterHandler = async()=>{
+    if(checkIfExists(playListState.watchlater,video._id)){
+        await removeFromWatchLater(token,playListDispatch,video._id)     
+    }else{
+        await addToWatchLater(token,playListDispatch,video)
+    }
+  }
+  // open playlist model
+  const openModal = ()=>{
+    setIsModalOpen(true);
+    setSelectedVideo(video)
+  }
   
   return (
     <div className='container'>
@@ -57,8 +71,14 @@ export function Video() {
                     : <MdThumbUpAlt size='1.5rem' color='#292C6D'/>
                   }
                   </span>
-                  <MdPlaylistAdd size='1.6rem'/>
-                  <MdOutlineWatchLater size='1.5rem'/>
+                  <span className='gray' onClick={openModal}>
+                    <MdPlaylistAdd size='1.6rem'/>
+                  </span>                   
+                  <span className='gray' onClick={watchLaterHandler}>
+                    {!checkIfExists(playListState.watchlater,video._id)?
+                      <MdOutlineWatchLater size='1.5rem'/>
+                      : <MdOutlineWatchLater size='1.5rem' color='#EC255A'/>}
+                  </span> 
                 </div>
               </div>
               <p className='text-sm'>{video.description}</p>
