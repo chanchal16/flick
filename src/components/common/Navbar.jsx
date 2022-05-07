@@ -2,10 +2,11 @@ import React from 'react';
 import {Link,useNavigate} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
-import { useVideo } from '../../contexts/VideoContext';
+import { useVideo,useAuth } from '../../contexts/MainProvider';
 import {MdSearch} from 'react-icons/md'
 
 export function Navbar() {
+  const{user} = useAuth()
   const{videoState,videoDispatch} = useVideo()
   const navigate = useNavigate()
 
@@ -27,11 +28,20 @@ export function Navbar() {
                 value={videoState.searchQuery} onChange={(e)=>videoDispatch({type:'SEARCH',payload:e.target.value.toLowerCase()})} />
                 <span className='search-icon gray'><MdSearch size='1rem'/> </span>
               </form>
-              <Link to='/login'> 
-                <button className="login-btn">
-                  Login
-                </button>
-              </Link>
+              {
+                user ?
+                (
+                  <button className="login-btn">
+                    Logout
+                  </button>
+                ):(
+                  <Link to='/login'> 
+                    <button className="login-btn">
+                      Login
+                    </button>
+                  </Link>
+                )
+              }             
             </nav>
         </header>
   )
