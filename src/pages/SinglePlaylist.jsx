@@ -1,9 +1,10 @@
 import React from 'react';
-import {useParams} from 'react-router-dom'
+import {useParams,Link} from 'react-router-dom'
 import { PlaylistVideoCard } from '../components';
 import { usePlaylist } from '../contexts/MainProvider';
 import { removeVideoFromPlaylist } from '../services/playlist-services';
 import { checkIfExists } from '../Utils/check-if-exists';
+import nodata from '../assets/nodata.svg'
 
 export function SinglePlaylist() {
     let {playlistId} = useParams();
@@ -15,6 +16,8 @@ export function SinglePlaylist() {
     
   return (
     <div className='outer-container'>
+        {  videos?.length > 0 ? (
+        <>
         <div className='watchlist-header'>
             <h6 className='h6 gray2-text'>{title}</h6>
             <span className='gray2-text'>{videos.length} videos</span>
@@ -33,6 +36,16 @@ export function SinglePlaylist() {
                 ))
             }
         </div>
+        </>):(
+            <div className='empty'>
+                <img src={nodata} alt='history' />
+                <span className='text-sm gray-text'>Looks like you haven't added any videos yet to the playlist.</span>
+                <Link to='/videos'>
+                    <button className='button'>Add videos</button>
+                </Link>
+            </div>
+        )
+        }
     </div>
   )
 }
