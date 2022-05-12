@@ -22,11 +22,6 @@ export function SinglePlaylist() {
             <h6 className='h6 gray2-text'>{title}</h6>
             <span className='gray2-text'>{videos.length} videos</span>
         </div>
-        <div className='subhead-div'>
-            <button className='button primary-btn'>
-                Delete all
-            </button>
-        </div>
         {/* video card */}
         <div className='list-container'>           
             {
