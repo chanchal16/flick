@@ -2,7 +2,7 @@ import React from 'react';
 import {Link,useNavigate} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
-import { useVideo,useAuth } from '../../contexts/MainProvider';
+import { useVideo,useAuth,usePlaylist } from '../../contexts/MainProvider';
 import {MdSearch} from 'react-icons/md'
 
 export function Navbar() {
