@@ -6,13 +6,20 @@ import { useVideo,useAuth } from '../../contexts/MainProvider';
 import {MdSearch} from 'react-icons/md'
 
 export function Navbar() {
-  const{user} = useAuth()
+  const{user,setUser} = useAuth()
   const{videoState,videoDispatch} = useVideo()
+  const{playListDispatch} = usePlaylist();
   const navigate = useNavigate()
 
   const handleSearch = (e)=>{
     e.preventDefault()
     navigate('/videos')   
+  }
+
+  const handleLogout = ()=>{
+    setUser(null)
+    localStorage.removeItem("token");
+    playListDispatch({type:'CLEAR'})
   }
   return (
         <header className="navbars">
@@ -31,7 +38,7 @@ export function Navbar() {
               {
                 user ?
                 (
-                  <button className="login-btn">
+                  <button className="login-btn" onClick={handleLogout}>
                     Logout
                   </button>
                 ):(
