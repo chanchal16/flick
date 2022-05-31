@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useCallback,useMemo} from 'react';
 import {Link,useNavigate} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
 import { useVideo,useAuth,usePlaylist } from '../../contexts/MainProvider';
 import {MdSearch} from 'react-icons/md'
+import { debounce } from '../../Utils/debounce';
 
 export function Navbar() {
   const{user,setUser} = useAuth()
@@ -15,7 +16,17 @@ export function Navbar() {
     e.preventDefault()
     navigate('/videos')   
   }
+  // input change handler
+  const onChangeHandler = (e)=>{   
+    videoDispatch({type:'SEARCH',payload:e.target.value.toLowerCase()})
+  }
+  // debounce onchange handler
+  // memoizes the debounced handler, but also calls debounce() only during initial rendering of the component 
+  const debouncedChangeHandler = useMemo(
+    () => debounce(onChangeHandler,1000),
+  [videoState.searchQuery])
 
+  // logout
   const handleLogout = ()=>{
     setUser(null)
     localStorage.removeItem("token");
@@ -32,7 +43,7 @@ export function Navbar() {
             <nav>
               <form onSubmit={handleSearch} className='search-form'>
                 <input type='search' className='search' placeholder='search'
-                value={videoState.searchQuery} onChange={(e)=>videoDispatch({type:'SEARCH',payload:e.target.value.toLowerCase()})} />
+                 onChange={debouncedChangeHandler} />
                 <span className='search-icon gray'><MdSearch size='1rem'/> </span>
               </form>
               {
