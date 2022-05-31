@@ -22,13 +22,14 @@
     background-color: var(--primary);
     color: white;
 }
-.login-btn{
-    background-color: var(--primary);
-    color: var(--offwhite);
+.auth-btn{
+    background-color: transparent;
+    margin:0 0.5rem;
+    padding: 0 0.5rem;
+    color: var(--primary);
 }
-.login-btn:hover{
-    background-color: var(--primary-dark);
-    color: var(--offwhite);
+.auth-btn:hover{
+    color: var(--accent);
 }
 @media (min-width: 768px) {
     .navbars{
