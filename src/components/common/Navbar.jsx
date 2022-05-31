@@ -3,7 +3,7 @@ import {Link,useNavigate} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
 import { useVideo,useAuth,usePlaylist } from '../../contexts/MainProvider';
-import {MdSearch} from 'react-icons/md'
+import {MdSearch,MdLogout,MdLogin} from 'react-icons/md'
 import { debounce } from '../../Utils/debounce';
 
 export function Navbar() {
@@ -49,14 +49,14 @@ export function Navbar() {
               {
                 user ?
                 (
-                  <button className="login-btn" onClick={handleLogout}>
-                    Logout
-                  </button>
+                  <span className="auth-btn" onClick={handleLogout}>
+                    <MdLogout size={'1.5rem'}/>
+                  </span>
                 ):(
                   <Link to='/login'> 
-                    <button className="login-btn">
-                      Login
-                    </button>
+                    <span className="auth-btn">
+                      <MdLogin size={'1.5rem'}/>
+                    </span>
                   </Link>
                 )
               }             
