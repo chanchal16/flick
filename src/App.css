@@ -21,11 +21,21 @@ main{
 /* main layout */
 .app-main{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .app-content{
-  width: calc(100% - 6rem);
-  margin-left: 6rem;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+}
+/* media queries */
+@media (min-width: 768px) {
+  .app-main{
+    flex-direction: row;
+  }
+  .app-content{
+    width: calc(100% - 6rem);
+    margin-left: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem; 
+  }
 }

@@ -1,12 +1,13 @@
 .sidenav{
     background-color:var(--offwhite);
     position:fixed;
-    width: 6rem;
-    height: 100%;
-    z-index: 2;
-    padding-top: 5rem;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    bottom: 0;
+    z-index: 4;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
     gap: 1.5rem;
     overflow: hidden;
 }
@@ -20,4 +21,16 @@
 .nav-link:hover,
 .active{
     color: var(--accent);
+}
+
+/* media queries */
+@media (min-width: 768px) {
+    .sidenav{
+        width: 6rem;
+        height: 100%;
+        z-index: 2;
+        padding-top: 5rem;
+        display: flex;
+        flex-direction: column;
+    }
 }
