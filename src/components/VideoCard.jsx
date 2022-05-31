@@ -7,14 +7,18 @@ import { checkIfExists } from '../Utils/check-if-exists';
 import { addToHistory } from '../services/history-services';
 
 export function VideoCard({video}) {
-    const {token} = useAuth();
+    const {token,user} = useAuth();
     const {playListState,playListDispatch,setIsModalOpen,setSelectedVideo} = usePlaylist();   
     
     const watchLaterHandler = async()=>{
-        if(checkIfExists(playListState.watchlater,video._id)){
-            await removeFromWatchLater(token,playListDispatch,video._id)     
+        if(user?._id){
+            if(checkIfExists(playListState.watchlater,video._id)){
+                await removeFromWatchLater(token,playListDispatch,video._id)     
+            }else{
+                await addToWatchLater(token,playListDispatch,video)
+            }
         }else{
-            await addToWatchLater(token,playListDispatch,video)
+            console.log('please log in')
         }
     }
 
