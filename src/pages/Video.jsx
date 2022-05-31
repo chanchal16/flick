@@ -58,15 +58,15 @@ export function Video() {
             <VideoPlayer video={video}/>
             {/* video details */}
             <div className='video-details'>
-              <p className='text-lg'>{video.title}</p>
+              <p className='text-lg'>{video?.title}</p>
               <div className='sub-details'>
                 <div className='sub-info'>
-                  <span>{video.views} views</span>
-                  <span className='text-sm'>{video.published} ago</span>
+                  <span>{video?.views} views</span>
+                  <span className='text-sm'>{video?.published} ago</span>
                 </div>
                 <div className='sub-info'>
                   <span onClick={LikesHandler}>
-                  {!checkIfExists(playListState.likes,video._id)?
+                  {!checkIfExists(playListState?.likes,video?._id)?
                     <MdThumbUpOffAlt size='1.5rem'/>
                     : <MdThumbUpAlt size='1.5rem' color='#292C6D'/>
                   }
@@ -75,13 +75,13 @@ export function Video() {
                     <MdPlaylistAdd size='1.6rem'/>
                   </span>                   
                   <span className='gray' onClick={watchLaterHandler}>
-                    {!checkIfExists(playListState.watchlater,video._id)?
+                    {!checkIfExists(playListState?.watchlater,video?._id)?
                       <MdOutlineWatchLater size='1.5rem'/>
                       : <MdOutlineWatchLater size='1.5rem' color='#EC255A'/>}
                   </span> 
                 </div>
               </div>
-              <p className='text-sm'>{video.description}</p>
+              <p className='text-sm'>{video?.description}</p>
             </div>
         </div>
         <div className='similar-videos'>
