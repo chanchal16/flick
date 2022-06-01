@@ -3,7 +3,7 @@ import {Navigate,Outlet,useLocation} from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
 export function RequireAuth() {
-    const{token,user} = useAuth();
+    const{user} = useAuth();
     const location = useLocation()
   if( user){
     return <Outlet/>
