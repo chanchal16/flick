@@ -4,17 +4,17 @@ import {MdRemoveRedEye} from 'react-icons/md'
 
 export function SimilarVideoCard({video}) {
   return (
-    <div class="hc-card">
-        <div class="card-media">
-            <img class="hc-img res-image"
+    <div className="hc-card">
+        <div className="card-media">
+            <img className="hc-img res-image"
             src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`} 
             alt="top" />                
         </div>
-        <div class="hc-content">
+        <div className="hc-content">
             <Link to={`/${video._id}`} className='link-to hover'>
-                <h3 class="hc-title">{video.title.substring(0,40)}...</h3>
+                <h3 className="hc-title">{video.title.substring(0,40)}...</h3>
             </Link>
-            <p class="gray hc-sub-title ">{video.creator}</p>
+            <p className="gray hc-sub-title ">{video.creator}</p>
             <div >
             <span className='gray hc-sub-title'>{video.views} <MdRemoveRedEye/>
                 <span className="dot">&bull;</span>

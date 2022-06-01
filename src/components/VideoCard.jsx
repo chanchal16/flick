@@ -29,24 +29,24 @@ export function VideoCard({video}) {
     
   return (
     <div>
-        <div class="card">
+        <div className="card">
             <Link to={`/${video._id}`} className='link-to' onClick={()=>addToHistory(token,playListDispatch,video)}>
-                <div class="card-media">
-                    <img class="vc-image" 
+                <div className="card-media">
+                    <img className="vc-image" 
                     src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`}
                     alt="specs" loading="lazy" />  
-                    <span class="time text-xs">{video.duration}</span>               
+                    <span className="time text-xs">{video.duration}</span>               
                 </div>
             </Link>
-            <div class="card-content">
+            <div className="card-content">
                 <Link to={`/${video._id}`} className='link-to' >
-                    <div class="content-title">
+                    <div className="content-title">
                         <p className='text-sm'>{video.title}</p>      
                     </div>
                 </Link>
-                <div class="desc details"> 
-                    <span class="gray text-xs"><strong> {video.creator}</strong></span> 
-                    <span class=" gray text-xs">{video.views}views</span>                                         
+                <div className="desc details"> 
+                    <span className="gray text-xs"><strong> {video.creator}</strong></span> 
+                    <span className=" gray text-xs">{video.views}views</span>                                         
                 </div>
                 <div className='action-btn'>                  
                     <span className='gray' onClick={openModal}>
