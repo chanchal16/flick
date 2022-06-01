@@ -37,7 +37,7 @@ export function Navbar() {
             <figure className='menu-icon'>
               <img src={logo} width="35px" height="35px" alt="logo" /> 
             </figure>
-            <a href="#" className="brand-name h6">
+            <a href="/" className="brand-name h6">
               flick            
             </a>
             <nav>
