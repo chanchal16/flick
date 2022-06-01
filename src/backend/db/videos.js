@@ -26,6 +26,18 @@ export const videos = [
     published:'7months'
   },
   {
+    _id:"N2bhaD9tiWI",
+    title:'14 SIMPLE Photography Tips for BREATHTAKING portraits',
+    description:`Here are 14 simple photography tricks and tips to take amazing 
+    portrait photography! With these photography tips for beginners, you can learn how
+     to take portraits and improve your portrait photography fast.`,
+    creator:'Bach Photography',
+    views:'735K',
+    duration:'10:01',
+    categoryName:'Portrait Photography',
+    published:'2 years'
+  },
+  {
     _id: "Y-LvHkDDWO8",
     title: "The Fundamentals of Fashion Photography with Shavonne Wong",
     description:
@@ -137,6 +149,16 @@ export const videos = [
     published:'4 years'
   },
   {
+    _id:"Um1TT_Nq9BI",
+    title:'Fashion Photography Tips in Hindi | Outdoor Photoshoot India | PBVlogs',
+    description:'Day in photographers life . Sharing Fashion photography tips in Hindi from outdoor designer photoshoot .',
+    creator:'Praveen Bhat Photography',
+    views:'4.5K',
+    duration:'5:27',
+    categoryName:'Fashion Photography',
+    published:'1 year'
+  },
+  {
     _id: "i1MdxIFaxbc",
     title: "Secrets of Architecture Photography | Tobi Shinobi",
     description:"Tobi Shinobi shares his insights on architecture photography as he visits his favorite spots around Chicago.",
@@ -146,4 +168,29 @@ export const videos = [
     categoryName:'Architectural Photography',
     published:'1 year'
   },
+  {
+    _id:"wmIvdzAIRMg",
+    title:'Lara Jade on Fashion Photography, Her Most Memorable Photoshoot & More | 21 Questions',
+    description:`Maria dropped in on fashion photographer Lara Jade while she was packing 
+    for a photoshoot. They talk about self portraits, fine art and jewelry photography, 
+    the magazines she’d love to work with, her favorite portrait lighting and more`,
+    creator:'B&H Photo Video',
+    views:'8.6K',
+    duration:'8:44',
+    categoryName:'Fashion Photography',
+    published:'1 year'
+  },
+  {
+    _id:"wCGMRA502qI",
+    title:'7 tips for architecture photography',
+    description:`The COOPH team headed out with the new Leica CL to test some useful
+     hints and tips for architecture photography. In this video we try out a variety of tips and tricks 
+     that are sure to perfect your architecture photography, whether you are shooting 
+     from inside or out! `,
+    creator:'COOPH',
+    views:'105K',
+    duration:'4:43',
+    categoryName:'Architectural Photography',
+    published:'3 years'
+  }
 ];
