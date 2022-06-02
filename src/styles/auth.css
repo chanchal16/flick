@@ -4,6 +4,7 @@
 .form{
     max-width: 400px;
     border: 2px solid var(--primary);
+    border-radius: 5px;
     margin: 3rem auto;
     display: flex;
     flex-direction: column;
