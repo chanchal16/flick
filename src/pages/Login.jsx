@@ -50,7 +50,7 @@ export function Login() {
                     <input type="checkbox" /> <label> Remember me</label> 
                 </div>
                 <p>Don't have an account ?
-                  <span className="primary-text" onClick={() => navigate("/signup", { state: { from } })}>
+                  <span className="primary-text" onClick={() => navigate("/signup", { state: { from } })} style={{cursor:'pointer'}}>
                      SignUp</span>
                 </p>
             </form>

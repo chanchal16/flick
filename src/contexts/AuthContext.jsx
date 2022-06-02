@@ -1,5 +1,6 @@
 import React,{useState,createContext,useContext} from 'react'
 import {LoginUser,SignUpUser} from '../services/auth';
+import { toast } from "react-toastify"
 
 const AuthContext = createContext();
 
@@ -25,9 +26,11 @@ const AuthContext = createContext();
           setToken(encodedToken);
           localStorage.setItem('users',JSON.stringify(foundUser))
           setUser(foundUser);
+          toast.success('Logged in successfully');
         }
       } catch (error) {
         console.error("Error in while logging in", error);
+        toast.error("Can't log in, please check your email")
       }
     }
   };
@@ -47,10 +50,12 @@ const AuthContext = createContext();
           setToken(encodedToken);
           localStorage.setItem('users',JSON.stringify(createdUser))
           setUser(createdUser);
+          toast.success('Signed Up successfully');
         }
       }
       catch (err){
         console.error('error while creating user',err);
+        toast.error("Can't sign up, please try later")
       }
     }
   }

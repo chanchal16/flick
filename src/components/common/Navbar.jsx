@@ -1,10 +1,11 @@
-import React,{useCallback,useMemo} from 'react';
+import React,{useMemo} from 'react';
 import {Link,useNavigate} from 'react-router-dom'
 import '../../styles/nav.css';
 import logo from '../../assets/shiny-iris.svg'
 import { useVideo,useAuth,usePlaylist } from '../../contexts/MainProvider';
 import {MdSearch,MdLogout,MdLogin} from 'react-icons/md'
 import { debounce } from '../../Utils/debounce';
+import { toast } from "react-toastify"
 
 export function Navbar() {
   const{user,setUser} = useAuth()
@@ -31,6 +32,7 @@ export function Navbar() {
     setUser(null)
     localStorage.removeItem("token");
     playListDispatch({type:'CLEAR'})
+    toast.success('Logged out successfully!')
   }
   return (
         <header className="navbars">

@@ -14,10 +14,10 @@ const initialState = {
     history:[]
 }
  function PlaylistContextProvider({children}) {
-   const [isModalOpen,setIsModalOpen] = useState(false)
-   const[selectedVideo,setSelectedVideo] = useState(null)
-    const {token} = useAuth()
-    const [playListState,playListDispatch] = useReducer(playlistReducer,initialState)
+  const [isModalOpen,setIsModalOpen] = useState(false)
+  const[selectedVideo,setSelectedVideo] = useState(null)
+  const {token} = useAuth()
+  const [playListState,playListDispatch] = useReducer(playlistReducer,initialState)
 
     useEffect(() => {
       getAllPlaylists(token,playListDispatch)

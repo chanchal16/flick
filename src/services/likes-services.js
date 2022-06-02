@@ -1,4 +1,5 @@
 import axios from "axios"
+import { toast } from "react-toastify"
 
 // get videos from likes
 const getLikedVideos =async (token,LikeDispatch)=>{
@@ -25,10 +26,12 @@ const addToLikes =async (token,LikeDispatch,video)=>{
             headers:{authorization:token}
         },)
         .then(res=>{
-            LikeDispatch({type:'UPDATE_LIKES',payload:res.data.likes})
+            LikeDispatch({type:'UPDATE_LIKES',payload:res.data.likes});
+            toast.success('Video added to likes')
         })
     }catch(err){
-        console.error('Not able to add video to watch later',err)
+        console.error('Not able to add video to watch later',err);
+        toast.error("Can't add to likes")
     }
 }
 
@@ -42,10 +45,12 @@ const removeFromLikes =async (token,LikeDispatch,videoId)=>{
             headers:{authorization:token}
         })
         .then(res=>{
-            LikeDispatch({type:'UPDATE_LIKES',payload:res.data.likes})
+            LikeDispatch({type:'UPDATE_LIKES',payload:res.data.likes});
+            toast.success('Video removed successfully')
         })
     }catch(err){       
         console.error("Can't remove video from watchlater",err)
+        toast.error("Can't remove video")
     }
 }
 export {getLikedVideos,addToLikes,removeFromLikes}

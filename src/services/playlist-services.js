@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios from "axios";
+import { toast } from "react-toastify"
 
 // get all playlists
 const getAllPlaylists =async (token,playlistDispatch)=>{
@@ -25,10 +26,12 @@ const createPlaylist =async (token,playlistDispatch,title)=>{
             headers:{authorization:token}
         },)
         .then(res=>{
-            playlistDispatch({type:'CREATE_PLAYLIST',payload:res.data.playlists})
+            playlistDispatch({type:'CREATE_PLAYLIST',payload:res.data.playlists});
+            toast.success('Playlist created successfully!')
         })
     }catch(err){
-        console.error('Not able to add video to playlist',err)
+        console.error('Not able to add video to playlist',err);
+        toast.error("Can't create playlist")
     }
 }
 
@@ -43,10 +46,13 @@ const deletePlaylist =async (token,playlistDispatch,playlistId)=>{
         })
         .then(res=>{
             playlistDispatch({type:'DELETE_PLAYLIST',payload:playlistId})
+            toast.success("Playlist deleted successfully!")
             return res.data.playlists
+            
         })
     }catch(err){       
-        console.error("Can't remove video from playlist",err)
+        console.error("Can't remove video from playlist",err);
+        toast.error("Can't delete playlist")
     }
 }
 // get playlist from playlists
@@ -78,9 +84,11 @@ const addVideoToPlaylist =async (token,playlistDispatch,video,playlistId)=>{
         },)
         .then(res=>{
             playlistDispatch({type:'UPDATE_PLAYLIST',payload:res.data.playlist})
+            toast.success('Video added to playlist')
         })
     }catch(err){
         console.error('Not able to add video to playlist',err)
+        toast.error("Can't add video to playlist")
     }
 }
 // remove video from playlist
@@ -94,10 +102,12 @@ const removeVideoFromPlaylist = async(token,playlistDispatch,videoId,playlistId)
             headers:{authorization:token}
         })
         .then(res=>{
-            playlistDispatch({type:'UPDATE_PLAYLIST',payload:res.data.playlist})
+            playlistDispatch({type:'UPDATE_PLAYLIST',payload:res.data.playlist});
+            toast.success('Video removed from playlist')
         })
     }catch(err){       
-        console.error("Can't remove video from playlist",err)
+        console.error("Can't remove video from playlist",err);
+        toast.error("Can't remove video")
     }
 }
 export {getAllPlaylists,createPlaylist,deletePlaylist,getPlaylist,addVideoToPlaylist,removeVideoFromPlaylist}

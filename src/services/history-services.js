@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios from "axios";
+import { toast } from "react-toastify";
 
 // get videos from history
 const getHistory =async (token,historyDispatch)=>{
@@ -7,7 +8,7 @@ const getHistory =async (token,historyDispatch)=>{
             headers: { authorization: token }
          })
          .then(res=>{
-            historyDispatch({type:'INIT',payload:res.data.history})
+            historyDispatch({type:'INIT',payload:res.data.history});
         })
     }catch(err){
         console.error('Could not load videos',err)
@@ -42,10 +43,12 @@ const removeFromHistory =async (token,historyDispatch,videoId)=>{
             headers:{authorization:token}
         })
         .then(res=>{
-            historyDispatch({type:'UPDATE_HISTORY',payload:res.data.history})
+            historyDispatch({type:'UPDATE_HISTORY',payload:res.data.history});
+            toast.success('video removed successfully')
         })
     }catch(err){       
-        console.error("Can't remove video from history",err)
+        console.error("Can't remove video from history",err);
+        toast.error("can't remove video" )
     }
 }
 
@@ -59,6 +62,7 @@ export const clearHistory = async (token,historyDispatch) => {
     })
     .then(res=>{
         historyDispatch({type:'CLEAR',payload:res.data.history})
+        toast.success('History cleared successfully!')
     })
     } catch (error) {
       toast.error("Failed to clear history");

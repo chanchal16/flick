@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios from "axios";
+import { toast } from "react-toastify"
 
 // get videos from watchlater
 const getVideosFromWatchLater =async (token,watchlaterDispatch)=>{
@@ -25,11 +26,13 @@ const addToWatchLater =async (token,watchlaterDispatch,video)=>{
             headers:{authorization:token}
         },)
         .then(res=>{
-            watchlaterDispatch({type:'UPDATE_WATCHLATER',payload:res.data.watchlater})
-            console.log('add to server',res.data)
+            watchlaterDispatch({type:'UPDATE_WATCHLATER',payload:res.data.watchlater});
+            toast.success('Video added to watchlater')
+            
         })
     }catch(err){
-        console.error('Not able to add video to watch later',err)
+        console.error('Not able to add video to watch later',err);
+        toast.error("Can't add video")
     }
 }
 
@@ -44,10 +47,11 @@ const removeFromWatchLater =async (token,watchlaterDispatch,videoId)=>{
         })
         .then(res=>{
             watchlaterDispatch({type:'UPDATE_WATCHLATER',payload:res.data.watchlater})
-            console.log('remove from server',res.data)
+            toast.success('Video removed from watchlater')
         })
     }catch(err){       
-        console.error("Can't remove video from watchlater",err)
+        console.error("Can't remove video from watchlater",err);
+        toast.error("Can't remove video")
     }
 }
 export {getVideosFromWatchLater,addToWatchLater,removeFromWatchLater}
