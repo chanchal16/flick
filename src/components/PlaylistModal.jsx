@@ -11,6 +11,7 @@ export function PlaylistModal() {
     const{isModalOpen,setIsModalOpen,playListDispatch,playListState,selectedVideo} = usePlaylist()
     const{playlists} = playListState
 
+    // handle playlist's video
     const handlePlaylistHandler =async (playlist)=>{
       if(checkIfExists(playlist?.videos,selectedVideo._id)){
         await removeVideoFromPlaylist(token,playListDispatch,selectedVideo._id,playlist._id)
@@ -18,9 +19,12 @@ export function PlaylistModal() {
       await addVideoToPlaylist(token,playListDispatch,selectedVideo,playlist._id)
       }
     }
+    // handle create playlist
     const handleSubmit = async(e)=>{
         e.preventDefault()  
-        await createPlaylist(token,playListDispatch,playlistTitle)
+        const createdPlaylistId=await createPlaylist(token,playListDispatch,playlistTitle)
+        // add the vid to the newly created playlist
+        addVideoToPlaylist(token,playListDispatch,selectedVideo,createdPlaylistId)
         setPlaylistTitle('')
     }
   return (
