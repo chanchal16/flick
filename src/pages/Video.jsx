@@ -12,7 +12,7 @@ export function Video() {
   const{videoId} = useParams();
   const {videoState} = useVideo();
   const{videos} = videoState
-  const {token} = useAuth()
+  const {token,user} = useAuth()
   const[similarVideos,setSimilarVideos] = useState([])
   const {playListState,playListDispatch,setIsModalOpen,setSelectedVideo} = usePlaylist()
 
@@ -32,18 +32,26 @@ export function Video() {
 
   // handle like video
   const LikesHandler = async()=>{
-    if(checkIfExists(playListState.likes,video._id)){
-      await removeFromLikes(token,playListDispatch,video._id)    
+    if(user?._id){
+      if(checkIfExists(playListState.likes,video._id)){
+        await removeFromLikes(token,playListDispatch,video._id)    
+      }else{
+        await addToLikes(token,playListDispatch,video)
+      }
     }else{
-      await addToLikes(token,playListDispatch,video)
+      toast.error('Please log in')
     }
   }
   // handle watchlater
   const watchLaterHandler = async()=>{
-    if(checkIfExists(playListState.watchlater,video._id)){
-        await removeFromWatchLater(token,playListDispatch,video._id)     
+    if(user?._id){
+      if(checkIfExists(playListState.watchlater,video._id)){
+          await removeFromWatchLater(token,playListDispatch,video._id)     
+      }else{
+          await addToWatchLater(token,playListDispatch,video)
+      }
     }else{
-        await addToWatchLater(token,playListDispatch,video)
+      toast.error('Please log in')
     }
   }
   // open playlist model

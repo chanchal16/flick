@@ -5,6 +5,7 @@ import { usePlaylist,useAuth } from '../contexts/MainProvider';
 import { addToWatchLater, removeFromWatchLater } from '../services/watchLater-services';
 import { checkIfExists } from '../Utils/check-if-exists';
 import { addToHistory } from '../services/history-services';
+import { toast } from "react-toastify"
 
 export function VideoCard({video}) {
     const {token,user} = useAuth();
@@ -18,7 +19,7 @@ export function VideoCard({video}) {
                 await addToWatchLater(token,playListDispatch,video)
             }
         }else{
-            console.log('please log in')
+            toast.error('Please log in')
         }
     }
 
