@@ -21,16 +21,17 @@ const getAllPlaylists =async (token,playlistDispatch)=>{
 // @params - playlist to be created
 const createPlaylist =async (token,playlistDispatch,title)=>{
     try{
-        await axios.post('/api/user/playlists',{playlist:{title}},
+        const{data:{playlists}}= await axios.post('/api/user/playlists',{playlist:{title}},
         {
             headers:{authorization:token}
         },)
-        .then(res=>{
-            playlistDispatch({type:'CREATE_PLAYLIST',payload:res.data.playlists});
-            toast.success('Playlist created successfully!')
-        })
+        playlistDispatch({type:'CREATE_PLAYLIST',payload:playlists})
+        toast.success('Playlist created successfully!')
+        // find the newly created playlist nd return its id 
+        const found = playlists.find(pl=>pl.title === title)
+        return found._id
     }catch(err){
-        console.error('Not able to add video to playlist',err);
+        console.error('cannot create a playlist',err);
         toast.error("Can't create playlist")
     }
 }
@@ -47,8 +48,7 @@ const deletePlaylist =async (token,playlistDispatch,playlistId)=>{
         .then(res=>{
             playlistDispatch({type:'DELETE_PLAYLIST',payload:playlistId})
             toast.success("Playlist deleted successfully!")
-            return res.data.playlists
-            
+            return res.data.playlists            
         })
     }catch(err){       
         console.error("Can't remove video from playlist",err);
