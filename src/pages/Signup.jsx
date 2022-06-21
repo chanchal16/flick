@@ -18,7 +18,6 @@ export function Signup() {
         setSignUpForm((form)=>({
             ...form,
         }))
-        navigate('/login')
     }
   return (
     <div>
