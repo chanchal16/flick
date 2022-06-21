@@ -7,6 +7,7 @@ const AuthContext = createContext();
  function AuthContextProvider({children}) {
   //  get the token from localstorage
   const loginToken = JSON.parse(localStorage.getItem("token"));
+  const localUser = JSON.parse(localStorage.getItem('flickusers'));
   // usestates
   const [token, setToken] = useState(loginToken?.token);
   const [user, setUser] = useState(); 
@@ -24,7 +25,7 @@ const AuthContext = createContext();
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);
-          localStorage.setItem('users',JSON.stringify(foundUser))
+          localStorage.setItem('flickusers',JSON.stringify(foundUser))
           setUser(foundUser);
           toast.success('Logged in successfully');
         }
@@ -35,28 +36,23 @@ const AuthContext = createContext();
     }
   };
 
-  const SignUpHandler = async(name,email,password)=>{
-    if(name && email && password === ''){
-      try{
-        const {
-          data: { createdUser, encodedToken },
-          status,
-        } = await SignUpUser(name,email, password);
-        if (status === 201) {
-          localStorage.setItem(
-            "token",
-            JSON.stringify({ token: encodedToken })
-          );
-          setToken(encodedToken);
-          localStorage.setItem('users',JSON.stringify(createdUser))
-          setUser(createdUser);
-          toast.success('Signed Up successfully');
-        }
-      }
-      catch (err){
-        console.error('error while creating user',err);
-        toast.error("Can't sign up, please try later")
-      }
+  const SignUpHandler = async (name,email,password)=>{
+    try{
+      const {
+        data: { createdUser, encodedToken }
+      } = await SignUpUser(name,email, password);
+        localStorage.setItem(
+          "token",
+          JSON.stringify({ token: encodedToken })
+        );
+        setToken(encodedToken);
+        localStorage.setItem('flickusers',JSON.stringify(createdUser))
+        setUser(createdUser);
+        toast.success('Signed Up successfully');
+    }
+    catch (err){
+      console.error('error while creating user',err);
+      toast.error("Can't sign up, please try later")
     }
   }
   const ProviderItem = {token,user,setUser,SignUpHandler,LoginHandler}
