@@ -2,14 +2,16 @@ import React,{useEffect,useState} from 'react'
 import { SimilarVideoCard, VideoPlayer } from '../components'
 import '../styles/video.css';
 import {MdPlaylistAdd,MdOutlineWatchLater,MdThumbUpOffAlt,MdThumbUpAlt} from 'react-icons/md'
-import {  useParams } from 'react-router-dom';
+import {  useParams,useNavigate } from 'react-router-dom';
 import { useVideo,useAuth,usePlaylist } from '../contexts/MainProvider';
 import { checkIfExists } from '../Utils/check-if-exists';
 import { addToLikes, removeFromLikes } from '../services/likes-services';
 import{addToWatchLater,removeFromWatchLater} from '../services/watchLater-services'
+import { toast } from "react-toastify"
 
 export function Video() {
   const{videoId} = useParams();
+  const navigate = useNavigate()
   const {videoState} = useVideo();
   const{videos} = videoState
   const {token,user} = useAuth()
@@ -40,6 +42,7 @@ export function Video() {
       }
     }else{
       toast.error('Please log in')
+      navigate('/login')
     }
   }
   // handle watchlater
