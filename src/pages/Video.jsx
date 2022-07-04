@@ -76,16 +76,16 @@ export function Video() {
                   <span className='text-sm'>{video?.published} ago</span>
                 </div>
                 <div className='sub-info'>
-                  <span onClick={LikesHandler}>
+                  <span className='icons' onClick={LikesHandler}>
                   {!checkIfExists(playListState?.likes,video?._id)?
                     <MdThumbUpOffAlt size='1.5rem'/>
                     : <MdThumbUpAlt size='1.5rem' color='#292C6D'/>
                   }
                   </span>
-                  <span className='gray' onClick={openModal}>
+                  <span className='gray icons' onClick={openModal}>
                     <MdPlaylistAdd size='1.6rem'/>
                   </span>                   
-                  <span className='gray' onClick={watchLaterHandler}>
+                  <span className='gray icons' onClick={watchLaterHandler}>
                     {!checkIfExists(playListState?.watchlater,video?._id)?
                       <MdOutlineWatchLater size='1.5rem'/>
                       : <MdOutlineWatchLater size='1.5rem' color='#EC255A'/>}

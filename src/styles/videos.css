@@ -24,6 +24,9 @@
     gap: 2rem ;   
 }
 /* video card */
+.video-card:hover{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}
 .card{
     margin: auto;
     max-width: 320px;
@@ -44,6 +47,9 @@
 }
 .content-title,.desc{
     margin: 0 0.5rem;
+}
+.icons:hover{
+    color:var(--accent)
 }
 
 /* details */
