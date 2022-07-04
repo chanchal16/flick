@@ -82,7 +82,7 @@ html{
 }
 /* watchlist header */
 .watchlist-header{
-  padding: 1rem ;
+  padding: 1rem 1rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,23 +107,30 @@ html{
 
 /* video card */
 .horizontal-card{
-  width: 80%;
+  width: 65%;
   margin: auto;
+  border: 1.4px solid var(--primary);
 }
 .horizontal-card:hover{
   box-shadow: 0 0 5px var(--light);
 }
 .hc-image {
-  width: 15rem;
-  height: 10rem;
+  width: 14rem;
+  height: 8rem;
   border-radius: 5px;
 }
 .card-title{
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: normal;
+  margin: 0 1rem;
+}
+.card-sub-title {
   margin: 0 1rem;
 }
 .content{
   flex-grow: 1;
+  padding: 0;
+  justify-content: center;
 }
 .content-footer{
   display: flex;
