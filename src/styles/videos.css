@@ -16,19 +16,22 @@
     color: white;
 }
 .videos-container{
-    display: flex;
-    justify-content: space-evenly;
+    padding:  0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(16rem,1fr));
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem 0;   
+    justify-content: center;
+    gap: 2rem ;   
 }
 /* video card */
 .card{
+    margin: auto;
     max-width: 320px;
     box-shadow: none;
 }
 .vc-image{
-    height: 180px;
+    width: 20rem;
+    height: 11.25rem;
 }
 .card-content{
     margin: 0;
@@ -70,4 +73,17 @@
     justify-content: flex-end;
     margin: 0.3rem 0.5rem;
     gap: 10px;
+}
+
+@media screen and (max-width:600px) {
+    .videos-container{
+        grid-template-columns: auto;
+    }
+    .vc-image{
+        width: 100%;
+        height: auto;
+    }
+    .chip{
+        margin: 0.5rem;
+    }
 }
