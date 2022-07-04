@@ -46,9 +46,6 @@ export function Login() {
                 </div>
                 <button type='submit' className="btn primary-btn">Login</button>
                 <button className="btn accent-btn" onClick={()=>HandleLogin()}>Guest Login</button>
-                <div>
-                    <input type="checkbox" /> <label> Remember me</label> 
-                </div>
                 <p>Don't have an account ?
                   <span className="primary-text" onClick={() => navigate("/signup", { state: { from } })} style={{cursor:'pointer'}}>
                      SignUp</span>
