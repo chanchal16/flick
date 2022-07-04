@@ -30,7 +30,7 @@ export function VideoCard({video}) {
     
   return (
     <div>
-        <div className="card">
+        <div className="card video-card">
             <Link to={`/videos/${video._id}`} className='link-to' onClick={()=>addToHistory(token,playListDispatch,video)}>
                 <div className="card-media">
                     <img className="vc-image" 
@@ -40,7 +40,7 @@ export function VideoCard({video}) {
                 </div>
             </Link>
             <div className="card-content">
-                <Link to={`/${video._id}`} className='link-to' >
+                <Link to={`/videos/${video._id}`} className='link-to' >
                     <div className="content-title">
                         <p className='text-sm'>{video.title}</p>      
                     </div>
@@ -50,10 +50,10 @@ export function VideoCard({video}) {
                     <span className=" gray text-xs">{video.views}views</span>                                         
                 </div>
                 <div className='action-btn'>                  
-                    <span className='gray' onClick={openModal}>
+                    <span className='gray icons' onClick={openModal}>
                         <MdPlaylistAdd size='1.3rem'/>
                     </span>                 
-                    <span className='gray' onClick={watchLaterHandler}>
+                    <span className='gray icons' onClick={watchLaterHandler}>
                       {!checkIfExists(playListState.watchlater,video._id)?
                        <MdOutlineWatchLater size='1.2rem'/>
                        : <MdOutlineWatchLater size='1.2rem' color='#EC255A'/>}
