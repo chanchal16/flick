@@ -11,7 +11,7 @@ const ROUTES = [
         element:<VideoListing/>
     },
     {
-        path:"/:videoId",
+        path:"videos/:videoId",
         element:<Video/>
     },
     {
