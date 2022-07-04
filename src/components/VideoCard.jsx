@@ -31,7 +31,7 @@ export function VideoCard({video}) {
   return (
     <div>
         <div className="card">
-            <Link to={`/${video._id}`} className='link-to' onClick={()=>addToHistory(token,playListDispatch,video)}>
+            <Link to={`/videos/${video._id}`} className='link-to' onClick={()=>addToHistory(token,playListDispatch,video)}>
                 <div className="card-media">
                     <img className="vc-image" 
                     src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`}

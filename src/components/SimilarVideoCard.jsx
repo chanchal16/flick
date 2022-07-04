@@ -11,7 +11,7 @@ export function SimilarVideoCard({video}) {
             alt="top" />                
         </div>
         <div className="hc-content">
-            <Link to={`/${video._id}`} className='link-to hover'>
+            <Link to={`/videos/${video._id}`} className='link-to hover'>
                 <h3 className="hc-title">{video.title.substring(0,40)}...</h3>
             </Link>
             <p className="gray hc-sub-title ">{video.creator}</p>

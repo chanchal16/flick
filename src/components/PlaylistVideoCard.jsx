@@ -12,7 +12,7 @@ export function PlaylistVideoCard({video,deleteVideo,playlistId}) {
     }
   return (
     <div className="horizontal-card">
-        <Link to={`/${video._id}`} onClick={()=>addToHistory(token,playListDispatch,video)}>
+        <Link to={`/videos/${video._id}`} onClick={()=>addToHistory(token,playListDispatch,video)}>
         <div className="card-media">
             <img className="hc-image res-image"
             src={`https://img.youtube.com/vi/${video._id}/mqdefault.jpg`} 
@@ -20,7 +20,7 @@ export function PlaylistVideoCard({video,deleteVideo,playlistId}) {
         </div>
         </Link>
         <div className="content">
-            <Link to={`/${video._id}`} className='link-to'
+            <Link to={`/videos/${video._id}`} className='link-to'
             onClick={()=>addToHistory(token,playListDispatch,video)}>
                 <h3 className="card-title">{video.title}</h3>
             </Link>
