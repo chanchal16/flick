@@ -13,8 +13,8 @@ function WatchLater() {
         { watchlater?.length > 0 ? (
             <>
         <div className='watchlist-header'>
-            <h6 className='h6 gray2-text'>Watch Later</h6>
-            <span className='gray2-text'>{watchlater.length} videos</span>
+            <h6 className='h6 gray2-text'>Watch Later 
+            <span className='gray-text'> ({watchlater.length})</span></h6>
         </div>
         {/* video card */}
         <div className='list-container'>           

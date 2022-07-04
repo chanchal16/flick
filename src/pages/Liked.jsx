@@ -13,8 +13,8 @@ export function Liked() {
         {likes?.length > 0 ?( 
         <>
         <div className='watchlist-header'>
-            <h6 className='h6 gray2-text'>Liked videos</h6>
-            <span className='gray2-text'>{likes.length} videos</span>
+            <h6 className='h6 gray2-text'>Liked videos
+            <span className='gray2-text'> ({likes.length})</span></h6>
         </div>
         {/* video card */}
         <div className='list-container'>

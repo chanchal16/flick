@@ -19,8 +19,8 @@ export function SinglePlaylist() {
         {  videos?.length > 0 ? (
         <>
         <div className='watchlist-header'>
-            <h6 className='h6 gray2-text'>{title}</h6>
-            <span className='gray2-text'>{videos.length} videos</span>
+            <h6 className='h6 gray2-text'>{title}
+            <span className='gray-text'> ({videos.length})</span></h6>
         </div>
         {/* video card */}
         <div className='list-container'>           
