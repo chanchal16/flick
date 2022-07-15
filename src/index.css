@@ -214,9 +214,11 @@ html{
 /* playlist */
 .playlists-container{
   padding: 2rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
 }
 /* playlist card */
 .card-badge {
@@ -273,6 +275,9 @@ html{
     flex-direction: column;
     align-items: center;
     gap:2rem
+  }
+  .playlists-container{
+    grid-template-columns: auto;
   }
   /* horizontal card */
   .list-container{
