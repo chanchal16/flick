@@ -22,9 +22,14 @@ const playlistReducer = (state,{type,payload})=>{
             return {...state,watchlater:payload}
         case 'UPDATE_HISTORY':
             return {...state,history:payload}
+        case 'CLEAR_HISTORY':
+            return {...state,history:[]}
         case 'CLEAR':
             return {
                 ...state,
+                watchlater:[],
+                playlists:[],
+                likes:[],
                 history:[]
             }
         default:

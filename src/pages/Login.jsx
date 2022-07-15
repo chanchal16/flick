@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import {Link,useNavigate,useLocation,Navigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
+import { usePlaylist } from '../contexts/PlaylistContext';
+import { clearHistory } from '../services/history-services';
 import '../styles/auth.css'
 
 export function Login() {
@@ -11,11 +13,16 @@ export function Login() {
     password: "",
   });
   const {LoginHandler,token,user} = useAuth();
+  const {playListState,playListDispatch} = usePlaylist()
   let from = location.state?.from?.pathname || "/";
  
   const handleSubmit = async(e)=>{
     e.preventDefault()
+    if(playListState.history.length >0){
+      clearHistory(token,playListDispatch)
+    }   
     await LoginHandler(loginForm.email, loginForm.password); 
+    
   }
 
   const HandleLogin=() =>{

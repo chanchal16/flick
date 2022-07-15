@@ -61,7 +61,7 @@ export const clearHistory = async (token,historyDispatch) => {
         headers:{authorization:token}
     })
     .then(res=>{
-        historyDispatch({type:'CLEAR',payload:res.data.history})
+        historyDispatch({type:'CLEAR_HISTORY',payload:res.data.history})
         toast.success('History cleared successfully!')
     })
     } catch (error) {
